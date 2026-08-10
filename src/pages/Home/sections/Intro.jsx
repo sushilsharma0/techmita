@@ -10,14 +10,14 @@ export default function Intro() {
     <section className="section-y border-b border-border">
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr_0.55fr] lg:gap-12 lg:items-start">
-          <Reveal>
+          <Reveal from="left">
             <SectionHeading
               title="Software built for real operations"
               description="We partner with organizations that need more than a vendor — teams that value clarity, thoughtful engineering, and software that holds up after launch."
               className="mb-0 lg:sticky lg:top-28"
             />
           </Reveal>
-          <Reveal delay={0.08}>
+          <Reveal from="right" delay={0.1}>
             <div className="space-y-6 prose-tech text-lg">
               <p>{company.mission}</p>
               <p>{company.vision}</p>
@@ -30,7 +30,7 @@ export default function Intro() {
               </Link>
             </div>
           </Reveal>
-          <Reveal delay={0.12} className="hidden lg:block lg:sticky lg:top-28">
+          <Reveal from="left" delay={0.16} className="hidden lg:block lg:sticky lg:top-28">
             <Section3D scene="nodes" size="md" align="center" />
           </Reveal>
         </div>

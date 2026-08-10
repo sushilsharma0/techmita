@@ -4,11 +4,12 @@ import { SectionHeading } from '@/components/common/SectionHeading'
 import { Section3D } from '@/components/common/Section3D'
 import { homeFaqs } from '@/data/faqs'
 import { Reveal } from '@/pages/shared/Reveal'
+
 export default function FAQ() {
   return (
     <section className="section-y border-b border-border bg-surface">
       <div className="container-page max-w-3xl">
-        <Reveal>
+        <Reveal from="left">
           <SectionHeading
             title="Common questions"
             description="Quick answers before we connect. More detail available on our process and services pages."
@@ -17,11 +18,11 @@ export default function FAQ() {
           />
         </Reveal>
 
-        <Reveal delay={0.04} className="mb-8 flex justify-center">
+        <Reveal from="up" delay={0.06} className="mb-8 flex justify-center">
           <Section3D scene="lock" size="sm" />
         </Reveal>
 
-        <Reveal delay={0.06}>
+        <Reveal from="right" delay={0.1}>
           <Accordion.Root type="single" collapsible className="space-y-3">
             {homeFaqs.map((faq) => (
               <Accordion.Item
@@ -38,7 +39,7 @@ export default function FAQ() {
                     />
                   </Accordion.Trigger>
                 </Accordion.Header>
-                <Accordion.Content className="overflow-hidden text-sm leading-relaxed text-muted">
+                <Accordion.Content className="overflow-hidden text-sm leading-relaxed text-muted data-[state=open]:animate-none">
                   <div className="px-6 pb-5">{faq.a}</div>
                 </Accordion.Content>
               </Accordion.Item>

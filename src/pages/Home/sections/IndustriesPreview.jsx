@@ -3,7 +3,7 @@ import { ArrowRight } from '@phosphor-icons/react'
 import { SectionHeading } from '@/components/common/SectionHeading'
 import { Section3D } from '@/components/common/Section3D'
 import { industries } from '@/data/industries'
-import { Reveal } from '@/pages/shared/Reveal'
+import { Reveal, revealFromIndex } from '@/pages/shared/Reveal'
 
 const PREVIEW = industries.slice(0, 6)
 
@@ -12,7 +12,7 @@ export default function IndustriesPreview() {
     <section className="section-y border-b border-border bg-surface">
       <div className="container-page">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-          <Reveal>
+          <Reveal from="left">
             <SectionHeading
               title="Industries we serve"
               description="Sector-aware delivery with attention to compliance, workflow fit, and operational reality."
@@ -30,7 +30,7 @@ export default function IndustriesPreview() {
 
           <ul className="divide-y divide-border border-y border-border">
             {PREVIEW.map((industry, i) => (
-              <Reveal key={industry.slug} delay={i * 0.04}>
+              <Reveal key={industry.slug} delay={i * 0.04} from={revealFromIndex(i)}>
                 <li>
                   <Link
                     to={`/industries/${industry.slug}`}

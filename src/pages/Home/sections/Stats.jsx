@@ -1,13 +1,13 @@
 import { SectionHeading } from '@/components/common/SectionHeading'
 import { Section3D } from '@/components/common/Section3D'
 import { stats } from '@/data/stats'
-import { Reveal } from '@/pages/shared/Reveal'
+import { Reveal, revealFromIndex } from '@/pages/shared/Reveal'
 
 export default function Stats() {
   return (
     <section className="section-y border-b border-border bg-surface">
       <div className="container-page">
-        <Reveal>
+        <Reveal from="left">
           <SectionHeading
             title="By the numbers"
             description="Placeholder metrics below — replace with verified figures before publishing. Not presented as factual claims."
@@ -16,13 +16,13 @@ export default function Stats() {
           />
         </Reveal>
 
-        <Reveal delay={0.04} className="mb-10 flex justify-center">
+        <Reveal from="up" delay={0.06} className="mb-10 flex justify-center">
           <Section3D scene="chart" size="md" />
         </Reveal>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {stats.map((stat, i) => (
-            <Reveal key={stat.id} delay={i * 0.05}>
+            <Reveal key={stat.id} delay={i * 0.05} from={revealFromIndex(i)}>
               <div className="rounded-xl border border-dashed border-border bg-bg/30 px-6 py-8 text-center">
                 <p className="font-display text-3xl font-bold tracking-tight text-text/90">
                   {stat.value}

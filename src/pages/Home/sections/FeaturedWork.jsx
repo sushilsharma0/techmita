@@ -3,7 +3,7 @@ import { ArrowRight } from '@phosphor-icons/react'
 import { SectionHeading } from '@/components/common/SectionHeading'
 import { Section3D } from '@/components/common/Section3D'
 import { getFeaturedProjects } from '@/data/projects'
-import { Reveal } from '@/pages/shared/Reveal'
+import { Reveal, revealFromIndex } from '@/pages/shared/Reveal'
 
 export default function FeaturedWork() {
   const projects = getFeaturedProjects().slice(0, 3)
@@ -11,7 +11,7 @@ export default function FeaturedWork() {
   return (
     <section className="section-y border-b border-border">
       <div className="container-page">
-        <Reveal>
+        <Reveal from="left">
           <SectionHeading
             title="Featured work"
             description="Sample case studies illustrating our approach — labeled as illustrative until replaced with verified client work."
@@ -20,7 +20,7 @@ export default function FeaturedWork() {
 
         <div className="space-y-16">
           {projects.map((project, i) => (
-            <Reveal key={project.slug} delay={i * 0.06}>
+            <Reveal key={project.slug} delay={i * 0.05} from={revealFromIndex(i)}>
               <article
                 className={`grid gap-8 lg:grid-cols-2 lg:gap-16 lg:items-center ${
                   i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''
@@ -66,7 +66,7 @@ export default function FeaturedWork() {
           ))}
         </div>
 
-        <Reveal className="mt-14 text-center">
+        <Reveal from="up" className="mt-14 text-center">
           <Link
             to="/portfolio"
             className="inline-flex items-center gap-2 font-display text-sm font-semibold text-cta no-underline hover:text-accent"
