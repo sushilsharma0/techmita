@@ -36,7 +36,7 @@ export function Reveal({
   delay = 0,
   as = 'div',
   from = 'auto',
-  duration = 0.55,
+  duration = 1.3,
   once = true,
   amount = 0.2,
 }) {
@@ -51,8 +51,8 @@ export function Reveal({
   const direction = directionRef.current
   const hiddenTransform = OFFSET[direction] ?? OFFSET.left
 
-  // Cap stagger so long lists don't feel laggy
-  const safeDelay = reduced ? 0 : Math.min(Math.max(delay, 0), 0.28)
+  // Allow longer stagger so cascades feel paced, not rushed
+  const safeDelay = reduced ? 0 : Math.min(Math.max(delay, 0), 0.7)
 
   if (reduced) {
     const Static = as === 'div' ? 'div' : as
@@ -80,7 +80,7 @@ export function Reveal({
 /**
  * Staggered group — children alternate left/right with a short cascade.
  */
-export function RevealGroup({ children, className, stagger = 0.06 }) {
+export function RevealGroup({ children, className, stagger = 0.16 }) {
   const items = Array.isArray(children) ? children : [children]
 
   return (

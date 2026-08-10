@@ -23,7 +23,7 @@ function HeroLine({ children, from = 'left', delay = 0, className }) {
       className={className}
       initial={{ opacity: 0, transform: hidden }}
       animate={{ opacity: 1, transform: 'translate3d(0, 0, 0)' }}
-      transition={{ duration: 0.6, ease: EASE, delay }}
+      transition={{ duration: 1.3, ease: EASE, delay }}
       style={{ backfaceVisibility: 'hidden' }}
     >
       {children}
@@ -48,23 +48,23 @@ export default function Hero() {
 
       <div className="container-page relative z-10 py-28 md:py-32 lg:py-36">
         <div className="max-w-2xl lg:max-w-[36rem]">
-          <HeroLine from="left" delay={0.05}>
+          <HeroLine from="left" delay={0.15}>
             <p className="font-display text-[clamp(2.75rem,8vw,5.5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-text">
               {company.name}
             </p>
           </HeroLine>
-          <HeroLine from="right" delay={0.14} className="mt-5">
+          <HeroLine from="right" delay={0.38} className="mt-5">
             <h1 className="text-[clamp(1.75rem,4vw,2.75rem)] font-display font-semibold leading-[1.12] tracking-[-0.03em] text-text/95">
               Technology that moves business forward
             </h1>
           </HeroLine>
-          <HeroLine from="left" delay={0.22} className="mt-6">
+          <HeroLine from="left" delay={0.6} className="mt-6">
             <p className="max-w-xl text-lg leading-relaxed text-muted">
               {company.tagline}. We design, build, and maintain software for organizations that need
               clarity, craftsmanship, and long-term partnership.
             </p>
           </HeroLine>
-          <HeroLine from="up" delay={0.32} className="mt-10">
+          <HeroLine from="up" delay={0.82} className="mt-10">
             <div className="flex flex-wrap gap-3">
               <Button asChild size="lg">
                 <Link to="/contact">
@@ -77,7 +77,7 @@ export default function Hero() {
               </Button>
             </div>
           </HeroLine>
-          <HeroLine from="right" delay={0.4} className="mt-10">
+          <HeroLine from="right" delay={1.02} className="mt-10">
             <p className="flex items-center gap-2 text-sm text-muted">
               <ShieldCheck weight="fill" className="size-4 shrink-0 text-accent" />
               Trusted delivery partner for web, mobile, cloud, and custom software

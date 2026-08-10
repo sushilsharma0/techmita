@@ -25,7 +25,7 @@ export function RootLayout() {
           initial={reduceMotion ? false : { opacity: 0, transform: 'translate3d(0, 12px, 0)' }}
           animate={{ opacity: 1, transform: 'translate3d(0, 0, 0)' }}
           exit={reduceMotion ? undefined : { opacity: 0, transform: 'translate3d(0, -8px, 0)' }}
-          transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
+          transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
           style={{ backfaceVisibility: 'hidden' }}
         >
           <Outlet />
